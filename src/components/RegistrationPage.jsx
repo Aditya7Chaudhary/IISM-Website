@@ -5,12 +5,9 @@ import Navbar from './Navbar';
 import RegistrationForm from './RegistrationForm';
 import RegistrationsList from './RegistrationsList';
 import Modal from './Modal';
-// Note: We don't import App.css here, App.jsx does it.
 
-// This is the fallback app ID
 const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-iism-app';
 
-// This component receives a prop `onNavigateHome` from App.jsx
 export default function RegistrationPage({ onNavigateHome }) {
   const [registrations, setRegistrations] = useState([]);
   const [editingEntry, setEditingEntry] = useState(null);
@@ -18,7 +15,6 @@ export default function RegistrationPage({ onNavigateHome }) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // --- This effect runs ONCE on load to sign in and set up the service ---
   useEffect(() => {
     const initializeApp = async () => {
       try {
@@ -38,9 +34,8 @@ export default function RegistrationPage({ onNavigateHome }) {
       }
     };
     initializeApp();
-  }, []); // The empty array [] means this runs only once
+  }, []); 
 
-  // --- This effect runs AFTER the 'service' is created ---
   useEffect(() => {
     if (service) {
       const unsubscribe = service.listenForChanges(
@@ -51,9 +46,8 @@ export default function RegistrationPage({ onNavigateHome }) {
       );
       return () => unsubscribe();
     }
-  }, [service]); // This effect re-runs if 'service' changes
+  }, [service]);
 
-  // --- Handler Functions ---
   const handleRegister = async (formData) => {
     if (!service) return;
     try {
@@ -70,14 +64,11 @@ export default function RegistrationPage({ onNavigateHome }) {
   const handleUpdate = async (formData) => {
     if (!service) return;
     try {
-      // Use the "Delete and Re-create" logic
       if (formData.id) {
-        // We pass the full formData, but also need the ID for deletion
         await service.deleteRegistration(formData.id);
       }
-      // addRegistration will create a new entry with a new ID
       await service.addRegistration(formData); 
-      setEditingEntry(null); // Close the modal
+      setEditingEntry(null);
     } catch (err) {
       console.error("Failed to update:", err);
     }
@@ -96,7 +87,6 @@ export default function RegistrationPage({ onNavigateHome }) {
     }
   };
 
-  // --- Render Logic ---
   if (error) {
     return (
       <div className="container error-message">
@@ -115,10 +105,8 @@ export default function RegistrationPage({ onNavigateHome }) {
     );
   }
 
-  // If we are done loading and have no errors, show the app
   return (
     <>
-      {/* We pass the 'onNavigateHome' prop to the Navbar */}
       <Navbar onNavigateHome={onNavigateHome} />
       
       <div className="container">
@@ -142,7 +130,6 @@ export default function RegistrationPage({ onNavigateHome }) {
         </main>
       </div>
 
-      {/* The Edit Modal (This includes the fix for the 'x' button) */}
       {editingEntry && (
         <Modal onClose={() => setEditingEntry(null)} showCloseButton={false}>
           <RegistrationForm

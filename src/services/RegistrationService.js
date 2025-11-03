@@ -28,10 +28,8 @@ class RegistrationService {
     this.collectionRef = ref(this.db, this.collectionPath);
   }
 
-  // CREATE
   async addRegistration(formData) {
     try {
-      // Create a *clean* object, free of any React internal keys
       const cleanData = {
         fullName: formData.fullName || "",
         email: formData.email || "",
@@ -40,13 +38,13 @@ class RegistrationService {
         gender: formData.gender || "Other",
       };
       
-      const newDocRef = push(this.collectionRef); // Create a new unique key
+      const newDocRef = push(this.collectionRef);
       
       const docData = {
         ...cleanData,
-        id: newDocRef.key, // Save the key as the ID
+        id: newDocRef.key,
         createdBy: this.userId,
-        createdAt: new Date().toISOString() // This is the timestamp we sort by
+        createdAt: new Date().toISOString()
       };
       
       await set(newDocRef, docData);
@@ -56,7 +54,6 @@ class RegistrationService {
     }
   }
 
-  // UPDATE
   async updateRegistration(updatedEntry) {
     try {
       if (!updatedEntry || !updatedEntry.id) {
@@ -65,9 +62,8 @@ class RegistrationService {
       
       const docRef = ref(this.db, `${this.collectionPath}/${updatedEntry.id}`);
       
-      // Create a clean data object, preserving internal keys
       const dataToUpdate = {
-        ...updatedEntry, // This now includes id, createdBy, createdAt
+        ...updatedEntry,
         updatedAt: new Date().toISOString()
       };
       
@@ -78,7 +74,6 @@ class RegistrationService {
     }
   }
 
-  // DELETE
   async deleteRegistration(registrationId) {
     try {
       if (!registrationId || typeof registrationId !== 'string') {
@@ -92,21 +87,14 @@ class RegistrationService {
     }
   }
 
-  // READ (Real-time Listener)
   listenForChanges(onUpdate) {
-    // 1. We ask Firebase to sort the data by our 'createdAt' timestamp.
-    // This will give us a list from OLDEST to NEWEST.
     const q = query(this.collectionRef, orderByChild('createdAt'));
     
     const unsubscribe = onValue(
       q,
       (snapshot) => {
-        // --- THIS IS THE FIX ---
-        // We create an empty array to hold our sorted data.
         let newRegistrations = [];
         
-        // 2. We use snapshot.forEach() which loops in the correct order.
-        // This is the ONLY reliable way to preserve Firebase sort order.
         snapshot.forEach((childSnapshot) => {
           const entry = childSnapshot.val();
           if (entry && entry.id) {
@@ -114,8 +102,6 @@ class RegistrationService {
           }
         });
         
-        // 3. At this point, newRegistrations = [oldest, middle, newest]
-        // NOW we reverse it to get the "stack" order (newest first).
         newRegistrations.reverse(); 
         
         onUpdate(newRegistrations);
@@ -131,5 +117,4 @@ class RegistrationService {
   }
 }
 
-// Don't forget this line!
 export default RegistrationService;

@@ -1,6 +1,6 @@
 export default function RegistrationCard({ entry, onEdit, onDelete }) {
   if (!entry) {
-    return null; // Don't render anything if the entry is bad
+    return null;
   }
   
   return (

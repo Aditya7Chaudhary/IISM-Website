@@ -1,12 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInAnonymously, signInWithCustomToken } from 'firebase/auth';
-// --- THIS IS THE CHANGE ---
-// Import getDatabase (for Realtime Database) INSTEAD of getFirestore
 import { getDatabase} from 'firebase/database';
-// --------------------------
 
-// Your web app's Firebase configuration
-// This should still have your apiKey, authDomain, etc.
 const firebaseConfig = {
   apiKey: "AIzaSyDU6WywvvC061Bret3Rv3mzND0hn5OQBQk",
   authDomain: "iism-2025-app.firebaseapp.com",
@@ -21,17 +16,15 @@ const firebaseConfig = {
 };
 
 
-// --- Firebase Initialization ---
 let app;
 let auth;
-let db; // 'db' will now be our Realtime Database
+let db;
 
 try {
   app = initializeApp(firebaseConfig);
   auth = getAuth(app);
-  db = getDatabase(app); // We call getDatabase()
-  
-  // setLogLevel('debug'); // <-- THIS WAS THE ERROR. IT IS NOW REMOVED.
+  db = getDatabase(app);
+
 
   console.log("Firebase initialized successfully with Realtime Database");
 
@@ -39,7 +32,6 @@ try {
   console.error("Firebase initialization error:", e);
 }
 
-// Get the initial auth token
 const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
 export const signIn = async () => {
@@ -60,5 +52,4 @@ export const signIn = async () => {
   }
 };
 
-// Export the initialized db and auth
 export { db, auth };

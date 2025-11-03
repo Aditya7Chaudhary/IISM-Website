@@ -9,9 +9,6 @@ const initialFormData = {
 };
 
 export default function RegistrationForm({
-  // --- 1. THE "EDIT" SWITCH ---
-  // This prop 'isEditMode' is passed from App.jsx.
-  // It's 'false' for the main form, but 'true' when the modal opens.
   isEditMode = false,
   currentEntry = null,
   onSubmit,
@@ -19,19 +16,13 @@ export default function RegistrationForm({
 }) {
   const [formData, setFormData] = useState(initialFormData);
 
-  // --- 2. THE "PRE-FILLER" (FOR EDITING) ---
-  // This 'useEffect' hook runs when the component loads.
-  // If 'isEditMode' is true, it pre-fills the form with the 'currentEntry' data.
-  // If not, it just shows a blank form.
   useEffect(() => {
     if (isEditMode && currentEntry) {
-      // We are in "Edit Mode," so fill the form
       setFormData(currentEntry);
     } else {
-      // We are in "Register Mode," so show a blank form
       setFormData(initialFormData);
     }
-  }, [isEditMode, currentEntry]); // Re-run if these props change
+  }, [isEditMode, currentEntry]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -56,13 +47,8 @@ export default function RegistrationForm({
 
   return (
     <form onSubmit={handleSubmit} className="registration-form">
-      
-      {/* --- 3. THE "EDIT" TITLE --- */}
-      {/* This line only shows the <h2> title if 'isEditMode' is true. */}
-      {isEditMode && <h2>Edit Registration</h2>}
 
-      {/* ... all the form fields (fullName, email, etc.) are here ... */}
-      {/* (These are the same for both modes) */}
+      {isEditMode && <h2>Edit Registration</h2>}
 
       <div className="form-group">
         <label htmlFor="fullName">Full Name</label>
@@ -117,11 +103,6 @@ export default function RegistrationForm({
         </div>
       </div>
 
-
-      {/* --- 4. THE "EDIT" BUTTONS --- */}
-      {/* This logic shows different buttons based on the 'isEditMode' switch. */}
-
-      {/* If NOT in edit mode, show the "Register" button. */}
       {!isEditMode && (
         <div className="form-actions">
           <button type="submit" className="form-button-primary">
@@ -130,7 +111,6 @@ export default function RegistrationForm({
         </div>
       )}
 
-      {/* If we ARE in edit mode, show "Save Changes" and "Cancel" buttons. */}
       {isEditMode && (
         <div className="form-actions">
           <button type="submit" className="form-button-primary">
@@ -139,7 +119,7 @@ export default function RegistrationForm({
           <button
             type="button"
             className="form-button-secondary"
-            onClick={onCancel} // 'onCancel' is passed from App.jsx
+            onClick={onCancel}
           >
             Cancel
           </button>

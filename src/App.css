@@ -1,29 +1,24 @@
-/* --- NEW HOMEPAGE STYLES --- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 
-/* --- 1. Homepage Base with Background Image --- */
 .homepage {
   font-family: 'Inter', sans-serif;
   width: 100%;
   min-height: 100vh;
   background-color: #f4f4f7;
   position: relative;
-  overflow: hidden; /* This is key for the shapes */
+  overflow: hidden;
   display: flex;
-  flex-direction: column; /* Stacks navbar and hero vertically */
+  flex-direction: column;
 }
 
-/* NEW: Styles for the homepage with a background image */
 .homepage-with-background-image {
-  /* This path assumes your image is in the /public folder */
   background-image: url('/hero-bg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: white; /* Default text color for elements over the background */
+  color: white;
 }
 
-/* --- 2. Homepage Navbar (White background) --- */
 .home-navbar {
   display: flex;
   justify-content: space-between;
@@ -31,7 +26,7 @@
   padding: 1.5rem 5%;
   position: relative;
   z-index: 10;
-  height: 80px; /* Fixed height for the navbar */
+  height: 80px;
 }
 
 .home-navbar-white {
@@ -54,20 +49,19 @@
   transition: color 0.3s ease;
 }
 .home-nav-links-dark a {
-  color: #333; /* Dark text for links on white navbar */
+  color: #333;
 }
 .home-nav-links-dark a:hover {
-  color: #F15A22; /* Accent color on hover */
+  color: #F15A22;
 }
 
 
-/* --- 3. Hero Section (Centered) --- */
 .home-hero-centered {
-  flex-grow: 1; /* Make hero take up remaining space */
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Vertically center content */
-  align-items: center; /* Horizontally center content */
+  justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 2rem 5%;
   position: relative;
@@ -98,7 +92,6 @@
   font-size: 1.1rem;
 }
 
-/* --- 4. Hero Button (from image) --- */
 .home-hero-button {
   font-family: 'Inter', sans-serif;
   font-size: 1.5rem;
@@ -120,8 +113,6 @@
 }
 
 
-/* --- EXISTING STYLES (REGISTRATION PAGE) --- */
-
 :root {
   --primary-color: #002147;
   --accent-color: #F15A22;
@@ -140,7 +131,6 @@ body, .app-wrapper {
   line-height: 1.6;
 }
 
-/* --- 2. Navbar (Registration Page) --- */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -150,8 +140,8 @@ body, .app-wrapper {
   color: var(--bg-white);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   height: 80px;
-  position: relative; /* --- NEW --- */
-  z-index: 900; /* --- NEW --- (just below mobile menu) */
+  position: relative;
+  z-index: 900;
 }
 
 .navbar-home-button {
@@ -175,31 +165,28 @@ body, .app-wrapper {
   border: none;
   cursor: pointer;
   padding: 0;
-  color: white; /* Base color for text */
+  color: white;
   text-align: left;
-  line-height: 1.2; /* Tighter line spacing */
+  line-height: 1.2;
 }
 
-/* Styles the "Inter IIT" text */
 .navbar-logo-top {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #f0f0f0; /* Slightly off-white */
+  color: #f0f0f0;
 }
 
-/* Styles the "Sports" text */
 .navbar-logo-bottom-blue {
   font-size: 1.5rem;
   font-weight: 900;
-  color: #5DADE2; /* A bright, sporty blue */
+  color: #5DADE2;
 }
 
-/* Styles the "Meet" text */
 .navbar-logo-bottom-red {
   font-size: 1.5rem;
   font-weight: 900;
-  color: #F15A22; /* Your app's orange/red accent color */
-  margin-left: 2px; /* A tiny space between the two words */
+  color: #F15A22;
+  margin-left: 2px;
 }
 
 .navbar-links {
@@ -217,7 +204,6 @@ body, .app-wrapper {
   color: var(--accent-color);
 }
 
-/* --- 3. Main Layout (Registration Page) --- */
 .container {
   max-width: 1400px;
   margin: 2rem auto;
@@ -227,8 +213,6 @@ body, .app-wrapper {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 2rem;
-  /* --- NEW --- */
-  /* This helps align the two columns when one is scrolling */
   align-items: start; 
 }
 .form-container {
@@ -236,8 +220,6 @@ body, .app-wrapper {
   padding: 2.5rem;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(218, 218, 218, 0.05);
-  /* --- NEW --- */
-  /* This makes the form "stick" to the top as you scroll the list */
   position: sticky;
   top: 2rem;
 }
@@ -247,11 +229,8 @@ body, .app-wrapper {
   padding: 2.5rem;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-  /* --- NEW --- */
-  /* This creates the scrolling container */
   display: flex;
   flex-direction: column;
-  /* Set a max-height. 80vh = 80% of the screen height. */
   max-height: 80vh; 
 }
 
@@ -264,7 +243,6 @@ body, .app-wrapper {
   color: var(--text-light);
 }
 
-/* --- 4. Form Elements --- */
 .registration-form .form-group {
   margin-bottom: 1.5rem;
 }
@@ -289,7 +267,6 @@ body, .app-wrapper {
   border-color: var(--accent-color);
   box-shadow: 0 0 0 3px rgba(241, 90, 34, 0.1);
 }
-/* Radio buttons */
 .radio-group {
   display: flex;
   gap: 1.5rem;
@@ -304,7 +281,6 @@ body, .app-wrapper {
 .radio-group input[type="radio"] {
   accent-color: var(--accent-color);
 }
-/* Buttons */
 .form-actions {
   display: flex;
   gap: 1rem;
@@ -339,12 +315,9 @@ body, .app-wrapper {
   transform: translateY(-2px);
 }
 
-/* --- 5. Registration List & Cards --- */
 .list-container h2 {
   margin-top: 0;
   color: var(--primary-color);
-  /* --- NEW --- */
-  /* Make the header "stick" inside the scrolling container */
   position: sticky;
   top: 0;
   background: var(--bg-white);
@@ -355,11 +328,9 @@ body, .app-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  /* --- NEW --- */
-  /* This is what makes the card area scroll */
   overflow-y: auto;
-  flex-grow: 1; /* Allows the wrapper to fill the container */
-  padding-right: 10px; /* Adds a little space for the scrollbar */
+  flex-grow: 1;
+  padding-right: 10px;
 }
 .no-entries {
   font-style: italic;
@@ -419,7 +390,6 @@ body, .app-wrapper {
   background-color: #ffe0e0;
 }
 
-/* --- 6. Modal / Pop-up --- */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -442,9 +412,8 @@ body, .app-wrapper {
   position: relative;
 }
 
-/* --- 7. NEW: Mobile Menu Styles --- */
 .mobile-menu-icon {
-  display: none; /* Hidden by default on desktop */
+  display: none;
   background: none;
   border: none;
   cursor: pointer;
@@ -506,39 +475,36 @@ body, .app-wrapper {
 }
 
 
-/* --- 8. Responsive Media Queries --- */
 @media (max-width: 900px) {
   .main-content {
-    grid-template-columns: 1fr; /* Stack form and list */
+    grid-template-columns: 1fr;
   }
   .list-wrapper {
-    grid-template-columns: 1fr; /* Single column for cards */
+    grid-template-columns: 1fr;
   }
   .form-container {
-    position: static; /* Un-stick the form on mobile */
+    position: static;
   }
   .list-container {
-    max-height: none; /* Let the list be as tall as it needs to be */
+    max-height: none;
   }
 }
 
 @media (max-width: 768px) {
-  /* Homepage responsive */
   .home-navbar {
     padding: 1rem 2%;
   }
   .home-hero-content-centered h1 {
-    font-size: 2.5rem; /* Even smaller on mobile */
+    font-size: 2.5rem;
   }
   .home-hero-content-centered p {
-    font-size: 1.1rem; /* Even smaller on mobile */
+    font-size: 1.1rem;
   }
   .home-hero-button {
     font-size: 1rem;
     padding: 0.8rem 2rem;
   }
 
-  /* Registration page responsive */
   .container {
     padding: 0 1rem;
   }
@@ -548,14 +514,12 @@ body, .app-wrapper {
   .navbar {
     padding: 1rem 2rem;
   }
-  
-  /* --- THIS IS THE KEY CHANGE --- */
-  /* Show hamburger, hide desktop links */
+
   .mobile-menu-icon {
     display: block;
   }
   .home-nav-links, .navbar-links {
-    display: none; /* This is in your file and is correct */
+    display: none;
   }
 }
 
