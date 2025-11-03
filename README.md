@@ -1,6 +1,6 @@
 # Core Strategy:
 
-•	Framework: React.js (using Vite)
+•   Framework: React.js (using Vite)
 •	Database: Firebase Real-time Database
 •	Authentication: Firebase Anonymous Authentication
 •	Deployment: Firebase Hosting
