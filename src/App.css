@@ -1,0 +1,561 @@
+/* --- NEW HOMEPAGE STYLES --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+/* --- 1. Homepage Base with Background Image --- */
+.homepage {
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f4f4f7;
+  position: relative;
+  overflow: hidden; /* This is key for the shapes */
+  display: flex;
+  flex-direction: column; /* Stacks navbar and hero vertically */
+}
+
+/* NEW: Styles for the homepage with a background image */
+.homepage-with-background-image {
+  /* This path assumes your image is in the /public folder */
+  background-image: url('/hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white; /* Default text color for elements over the background */
+}
+
+/* --- 2. Homepage Navbar (White background) --- */
+.home-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  position: relative;
+  z-index: 10;
+  height: 80px; /* Fixed height for the navbar */
+}
+
+.home-navbar-white {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.home-logo-image {
+  height: 100px;
+  width: auto;
+}
+
+.home-nav-links {
+  display: flex;
+  gap: 2rem;
+}
+.home-nav-links a {
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+.home-nav-links-dark a {
+  color: #333; /* Dark text for links on white navbar */
+}
+.home-nav-links-dark a:hover {
+  color: #F15A22; /* Accent color on hover */
+}
+
+
+/* --- 3. Hero Section (Centered) --- */
+.home-hero-centered {
+  flex-grow: 1; /* Make hero take up remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center content */
+  align-items: center; /* Horizontally center content */
+  text-align: center;
+  padding: 2rem 5%;
+  position: relative;
+  z-index: 5;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.home-hero-content-centered {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  gap: 1.5rem;
+  max-width: 800px;
+}
+
+.home-hero-content-centered h1 {
+  font-size: 4.5rem;
+  font-weight: 900;
+  margin: 0;
+  line-height: 1.2;
+}
+.home-hero-content-centered p {
+  font-size: 1.8rem;
+  margin: 0;
+}
+.home-hero-content-centered span {
+  font-size: 1.1rem;
+}
+
+/* --- 4. Hero Button (from image) --- */
+.home-hero-button {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  border: none;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  cursor: pointer;
+  background-image: linear-gradient(90deg, #0052A5, #F15A22);
+  background-size: 200% auto;
+  transition: all 0.4s ease;
+  margin-top: 2rem;
+}
+.home-hero-button:hover {
+  background-position: right center;
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+/* --- EXISTING STYLES (REGISTRATION PAGE) --- */
+
+:root {
+  --primary-color: #002147;
+  --accent-color: #F15A22;
+  --bg-light: #f4f4f7;
+  --bg-white: #ffffff;
+  --text-dark: #222222;
+  --text-light: #555555;
+  --border-color: #e0e0e0;
+}
+
+body, .app-wrapper {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* --- 2. Navbar (Registration Page) --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: var(--primary-color);
+  color: var(--bg-white);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 80px;
+  position: relative; /* --- NEW --- */
+  z-index: 900; /* --- NEW --- (just below mobile menu) */
+}
+
+.navbar-home-button {
+  font-family: 'Inter', sans-serif;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.navbar-logo-image {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+
+.navbar-home-button {
+  font-family: 'Inter', sans-serif;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: white; /* Base color for text */
+  text-align: left;
+  line-height: 1.2; /* Tighter line spacing */
+}
+
+/* Styles the "Inter IIT" text */
+.navbar-logo-top {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f0f0f0; /* Slightly off-white */
+}
+
+/* Styles the "Sports" text */
+.navbar-logo-bottom-blue {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #5DADE2; /* A bright, sporty blue */
+}
+
+/* Styles the "Meet" text */
+.navbar-logo-bottom-red {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #F15A22; /* Your app's orange/red accent color */
+  margin-left: 2px; /* A tiny space between the two words */
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.navbar-links a {
+  color: var(--bg-white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+.navbar-links a:hover {
+  color: var(--accent-color);
+}
+
+/* --- 3. Main Layout (Registration Page) --- */
+.container {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  /* --- NEW --- */
+  /* This helps align the two columns when one is scrolling */
+  align-items: start; 
+}
+.form-container {
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(218, 218, 218, 0.05);
+  /* --- NEW --- */
+  /* This makes the form "stick" to the top as you scroll the list */
+  position: sticky;
+  top: 2rem;
+}
+
+.list-container {
+  background-color: var(--bg-white);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  /* --- NEW --- */
+  /* This creates the scrolling container */
+  display: flex;
+  flex-direction: column;
+  /* Set a max-height. 80vh = 80% of the screen height. */
+  max-height: 80vh; 
+}
+
+.form-container h1 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+.form-container p {
+  margin-bottom: 2rem;
+  color: var(--text-light);
+}
+
+/* --- 4. Form Elements --- */
+.registration-form .form-group {
+  margin-bottom: 1.5rem;
+}
+.registration-form label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(241, 90, 34, 0.1);
+}
+/* Radio buttons */
+.radio-group {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
+}
+.radio-group input[type="radio"] {
+  accent-color: var(--accent-color);
+}
+/* Buttons */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.form-button-primary, .form-button-secondary {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 0.85rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.form-button-primary {
+  background-color: var(--accent-color);
+  color: white;
+}
+.form-button-primary:hover {
+  background-color: #d94811;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.form-button-secondary {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+}
+.form-button-secondary:hover {
+  background-color: var(--border-color);
+  transform: translateY(-2px);
+}
+
+/* --- 5. Registration List & Cards --- */
+.list-container h2 {
+  margin-top: 0;
+  color: var(--primary-color);
+  /* --- NEW --- */
+  /* Make the header "stick" inside the scrolling container */
+  position: sticky;
+  top: 0;
+  background: var(--bg-white);
+  padding-bottom: 1rem;
+  z-index: 10;
+}
+.list-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  /* --- NEW --- */
+  /* This is what makes the card area scroll */
+  overflow-y: auto;
+  flex-grow: 1; /* Allows the wrapper to fill the container */
+  padding-right: 10px; /* Adds a little space for the scrollbar */
+}
+.no-entries {
+  font-style: italic;
+  color: var(--text-light);
+}
+.card {
+  background-color: #fdfdfd;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+}
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+.card p {
+  margin: 0.25rem 0;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+.card-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+.card-button, .card-button-delete {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.card-button {
+  background-color: #e6f6ff;
+  color: #0056b3;
+}
+.card-button:hover {
+  background-color: #cce7ff;
+}
+.card-button-delete {
+  background-color: #fff0f0;
+  color: #d93030;
+}
+.card-button-delete:hover {
+  background-color: #ffe0e0;
+}
+
+/* --- 6. Modal / Pop-up --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-content {
+  background: var(--bg-white);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+}
+
+/* --- 7. NEW: Mobile Menu Styles --- */
+.mobile-menu-icon {
+  display: none; /* Hidden by default on desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mobile-menu-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 5%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.mobile-menu-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+.mobile-menu-register-btn, .mobile-menu-home-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  background-image: linear-gradient(90deg, #0052A5, #F15A22);
+  background-size: 200% auto;
+  transition: all 0.4s ease;
+}
+.mobile-menu-home-btn {
+  font-size: 2rem;
+  padding: 1rem 2.5rem;
+}
+
+
+/* --- 8. Responsive Media Queries --- */
+@media (max-width: 900px) {
+  .main-content {
+    grid-template-columns: 1fr; /* Stack form and list */
+  }
+  .list-wrapper {
+    grid-template-columns: 1fr; /* Single column for cards */
+  }
+  .form-container {
+    position: static; /* Un-stick the form on mobile */
+  }
+  .list-container {
+    max-height: none; /* Let the list be as tall as it needs to be */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Homepage responsive */
+  .home-navbar {
+    padding: 1rem 2%;
+  }
+  .home-hero-content-centered h1 {
+    font-size: 2.5rem; /* Even smaller on mobile */
+  }
+  .home-hero-content-centered p {
+    font-size: 1.1rem; /* Even smaller on mobile */
+  }
+  .home-hero-button {
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+  }
+
+  /* Registration page responsive */
+  .container {
+    padding: 0 1rem;
+  }
+  .form-container, .list-container {
+    padding: 1.5rem;
+  }
+  .navbar {
+    padding: 1rem 2rem;
+  }
+  
+  /* --- THIS IS THE KEY CHANGE --- */
+  /* Show hamburger, hide desktop links */
+  .mobile-menu-icon {
+    display: block;
+  }
+  .home-nav-links, .navbar-links {
+    display: none; /* This is in your file and is correct */
+  }
+}
+
