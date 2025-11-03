@@ -1,10 +1,10 @@
 # Core Strategy:
 
-•   Framework: React.js (using Vite)
-•	Database: Firebase Real-time Database
-•	Authentication: Firebase Anonymous Authentication
-•	Deployment: Firebase Hosting
-•	Styling: Custom CSS (no frameworks like Tailwind or Bootstrap)
+*   Framework: React.js (using Vite)
+*	Database: Firebase Real-time Database
+*	Authentication: Firebase Anonymous Authentication
+*	Deployment: Firebase Hosting
+*	Styling: Custom CSS (no frameworks like Tailwind or Bootstrap)
 
 # Part 1: What The Website Can Do (Features)
 
